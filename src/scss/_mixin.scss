@@ -1,0 +1,6 @@
+$fullwidth : 100%;
+@for $i from 1 through 12 {
+	.col-#{$i} {
+		width : $fullwidth/12 * $i;
+	}
+}

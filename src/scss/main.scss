@@ -1,0 +1,74 @@
+$baseFontSize : 10px;
+
+html{
+	font-size: $baseFontSize;
+}
+section{
+	width: 100%;
+	height: 100%;
+	position: relative;
+}
+.menu-navigation{
+	position: relative;
+	z-index: 2;
+	top: 4rem;
+	a {
+		display: block;
+		font-size: 1.7rem;
+		position: relative;
+		width: 7rem;
+		height: 4rem;
+		line-height: 4rem;
+		color: #fff;
+		float: left;
+		text-decoration: none;
+		text-align: center;
+		text-transform: uppercase;
+
+		&::before,&::after{
+			content:'';
+			display: block;
+			position: absolute;
+			left: 10%;
+			bottom: 0;
+			width: 80%;
+			height: 3px;
+			background-color: #fff;
+			border-radius: 2px;
+			transition:all .1s;
+		}
+		&::before{
+			width: 0;
+			left: 50%;
+			opacity: 0;
+			transform:translateY(100%)
+		}
+		&:hover::before{
+			bottom: 100%;
+			left: 0;
+			opacity: 1;
+			width:100%;
+		}
+		&:hover::after{
+			left: 0;
+			width: 100%;
+		}
+		&:not(:first-child){
+		margin-left: 1rem;
+		}
+	}
+	.nav-brand {
+		float: right;
+		height: 4rem;
+		line-height: 4rem;
+		font-size: 2rem;
+		color: #fff;
+		text-transform: uppercase;
+	}
+}
+.carousel {
+	position: absolute;
+	left: 0;
+	top: 0;
+	z-index: 1;
+}

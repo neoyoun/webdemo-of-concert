@@ -1,10 +1,10 @@
 @import "variable";
 @font-face {font-family: "iconfont";
-  src: url('./font/iconfont.eot');
-  src: url('./font/iconfont.eot#iefix') format('embedded-opentype'),
-  url('./font/iconfont.woff') format('woff'), 
-  url('./font/iconfont.ttf') format('truetype'),
-  url('./font/iconfont.svg#iconfont') format('svg');
+  src: url('../font/iconfont.eot'); /* IE9*/
+  src: url('../font/iconfont.eot#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url('../font/iconfont.woff') format('woff'), /* chrome, firefox */
+  url('../font/iconfont.ttf') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
+  url('../font/iconfont.svg#iconfont') format('svg'); /* iOS 4.1- */
 }
 
 .iconfont {
@@ -128,29 +128,32 @@ section{
 
 	.banner-controller {
 		position: absolute;
-		bottom: 0;
+		bottom: 2rem;
 		left: 10%;
-		width: 50%;
-		height: 5rem;
-		line-height: 5rem;
 
 		.controller-unit{
+			margin-right: 1rem;
 			float: left;
-			font-size: 4rem;
-			line-height: 1;
 			font-family: 'iconfont';
+			font-size: 5rem;
+			line-height: 1;
 			color: #fff;
+			cursor: pointer;
+			opacity: .5;
+			transition:all .2s;
 		}
 
-		.prev-btn{
-			transform : rotate(180deg);
+		&:hover .controller-unit {
+			opacity: 1;
 		}
 	}
 }
-
+/* About US stylesheet*/
 .about-page{
 	margin-top: 2rem;
+	margin-bottom: 2rem;
 	text-align: center;
+	overflow: hidden;
   
 	h2 {
 		text-transform: uppercase;
@@ -159,8 +162,8 @@ section{
 
 		span {
 			font-size: 3rem;
-			padding-bottom: 3rem;
-			border-bottom:#e92381 2px solid ;
+			padding-bottom: 2rem;
+			border-bottom:#e92381 3px solid;
 		}
 
 	}
@@ -173,27 +176,45 @@ section{
 		float: left;
 		margin-left: 2.5%;
 		margin-right: 2.5%;
-		padding-top: 1rem;
-		padding-bottom: 2rem;
+		padding-top: 2rem;
+		padding-bottom: 200rem;
+		margin-bottom: -195rem;
 		background-color: #e92381;
 		color: #fff;
+		transition:background-color .5s;
 
 		.item-icon {
 			width: 10rem;
 			height: 10rem;
-			margin:1rem auto;
+			padding:2rem;
+			margin:0 auto;
 			text-align: center;
 			font-family: 'iconfont';
-			font-size: 8rem;
-			line-height: 10rem;
+			font-size: 6rem;
+			line-height: 1;
 			border:5px solid #fff;
 			border-radius: 50%;
 		}
-		.item-title{
-			font-size: 1.7rem;
-			line-height: 2;
+		.item-title {
+			font-size: 2rem;
+			line-height: 3;
+		}
+		.item-desc {
+			padding: 1rem;
+			font-size: 1.4rem;
 		}
 
+		&:hover {
+			background-color: #003466;
+
+			.item-icon {
+				animation:rotating 2s linear infinite;
+			}
+		}
 	}
 
+	@keyframes rotating {
+		0% {transform : rotate(0deg)}
+		100% {transform : rotate(360deg)}
+	}
 }

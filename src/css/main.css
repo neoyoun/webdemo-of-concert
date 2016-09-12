@@ -1,7 +1,9 @@
 @font-face {
   font-family: "iconfont";
-  src: url("./font/iconfont.eot");
-  src: url("./font/iconfont.eot#iefix") format("embedded-opentype"), url("./font/iconfont.woff") format("woff"), url("./font/iconfont.ttf") format("truetype"), url("./font/iconfont.svg#iconfont") format("svg"); }
+  src: url("../font/iconfont.eot");
+  /* IE9*/
+  src: url("../font/iconfont.eot#iefix") format("embedded-opentype"), url("../font/iconfont.woff") format("woff"), url("../font/iconfont.ttf") format("truetype"), url("../font/iconfont.svg#iconfont") format("svg");
+  /* iOS 4.1- */ }
 .iconfont {
   font-family: "iconfont" !important;
   font-size: 16px;
@@ -102,31 +104,35 @@ section {
         letter-spacing: .5rem; }
   .banner .banner-controller {
     position: absolute;
-    bottom: 0;
-    left: 10%;
-    width: 50%;
-    height: 5rem;
-    line-height: 5rem; }
+    bottom: 2rem;
+    left: 10%; }
     .banner .banner-controller .controller-unit {
+      margin-right: 1rem;
       float: left;
-      font-size: 4rem;
-      line-height: 1;
       font-family: 'iconfont';
-      color: #fff; }
-    .banner .banner-controller .prev-btn {
-      transform: rotate(180deg); }
+      font-size: 5rem;
+      line-height: 1;
+      color: #fff;
+      cursor: pointer;
+      opacity: .5;
+      transition: all .2s; }
+    .banner .banner-controller:hover .controller-unit {
+      opacity: 1; }
 
+/* About US stylesheet*/
 .about-page {
   margin-top: 2rem;
-  text-align: center; }
+  margin-bottom: 2rem;
+  text-align: center;
+  overflow: hidden; }
   .about-page h2 {
     text-transform: uppercase;
     text-align: center;
     margin-bottom: 3rem; }
     .about-page h2 span {
       font-size: 3rem;
-      padding-bottom: 3rem;
-      border-bottom: #e92381 2px solid; }
+      padding-bottom: 2rem;
+      border-bottom: #e92381 3px solid; }
   .about-page .page-desc {
     margin-top: 1rem;
     margin-bottom: 5rem; }
@@ -135,22 +141,37 @@ section {
     float: left;
     margin-left: 2.5%;
     margin-right: 2.5%;
-    padding-top: 1rem;
-    padding-bottom: 2rem;
+    padding-top: 2rem;
+    padding-bottom: 200rem;
+    margin-bottom: -195rem;
     background-color: #e92381;
-    color: #fff; }
+    color: #fff;
+    transition: background-color .5s; }
     .about-page .about-agile .item-icon {
       width: 10rem;
       height: 10rem;
-      margin: 1rem auto;
+      padding: 2rem;
+      margin: 0 auto;
       text-align: center;
       font-family: 'iconfont';
-      font-size: 8rem;
-      line-height: 10rem;
+      font-size: 6rem;
+      line-height: 1;
       border: 5px solid #fff;
       border-radius: 50%; }
     .about-page .about-agile .item-title {
-      font-size: 1.7rem;
-      line-height: 2; }
+      font-size: 2rem;
+      line-height: 3; }
+    .about-page .about-agile .item-desc {
+      padding: 1rem;
+      font-size: 1.4rem; }
+    .about-page .about-agile:hover {
+      background-color: #003466; }
+      .about-page .about-agile:hover .item-icon {
+        animation: rotating 2s linear infinite; }
+@keyframes rotating {
+  0% {
+    transform: rotate(0deg); }
+  100% {
+    transform: rotate(360deg); } }
 
 /*# sourceMappingURL=main.css.map */

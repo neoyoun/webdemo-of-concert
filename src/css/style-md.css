@@ -43,10 +43,16 @@
 .col-12 {
   width: 100%; }
 
-.menu-navigation {
+.navbar {
   padding-left: 10%;
   padding-right: 10%; }
-  .menu-navigation .a {
+  .navbar .a {
     text-transform: uppercase; }
+
+.xs-visible {
+  display: none; }
+
+.banner .banner-container .banner-image {
+  background-size: cover; }
 
 /*# sourceMappingURL=style-md.css.map */

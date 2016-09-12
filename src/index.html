@@ -4,7 +4,6 @@
 	<meta charset="UTF-8">
 	<title>concert</title>
 	<link rel="stylesheet" href="css/reset.css">
-	<link rel="stylesheet" href="css/base.css">
 	<link rel="stylesheet" href="css/main.css">
 	<link rel="stylesheet" href="css/style-md.css" media="screen and (min-width:992px)">
 	<link rel="stylesheet" href="css/style-sm.css" media="screen and (min-width:640px) and (max-width:992px)">
@@ -13,13 +12,15 @@
 <body>
 	<!-- home section -->
 	<section data-indication="home">
-		<nav class="menu-navigation xs-hidden clear">
-			<a href="">home</a>
-			<a href="">about</a>
-			<a href="">info</a>
-			<a href="">team</a>
-			<a href="">work</a>
-			<a href="">contact</a>
+		<nav class="navbar xs-hidden clear">
+			<ul class="menu-navigation">
+				<li><a href="">home</a></li>
+				<li><a href="">about</a></li>
+				<li><a href="">info</a></li>
+				<li><a href="">team</a></li>
+				<li><a href="">work</a></li>
+				<li><a href="">contact</a></li>
+			</ul>
 			<div class="nav-brand">euphony</div>
 		</nav>
 		<nav class="xs-visible">
@@ -30,40 +31,68 @@
 			<a href="">work</a>
 			<a href="">contact</a>
 		</nav>
-		<div class="carousel">
-			<div class="carousel-items">
-				<figure class="carousel-item" data-index="1">
-					<img src="./images/banner1.jpg" alt="">
-					<figcaption>LOREM IPSUM DOLOR SIT AMET</figcaption>
-				</figure>
-				<figure class="carousel-item" data-index="2">
-					<img src="./images/banner2.jpg" alt="">
-					<figcaption>CONSECTETUR ADIPISCING</figcaption>
-				</figure>
-				<figure class="carousel-item" data-index="3">
-					<img src="./images/banner3.jpg" alt="">
-					<figcaption>IN QUIS NEQUE CONVALLIS</figcaption>
-				</figure>
-				<figure class="carousel-item" data-index="4">
-					<img src="./images/banner4.jpg" alt="">
-					<figcaption>PULVINAR EROS ET SEMPER</figcaption>
-				</figure>
-				<figure class="carousel-item" data-index="5">
-					<img src="./images/banner5.jpg" alt="">
-					<figcaption>SED FAUCIBUS TURPIS</figcaption>
-				</figure>
+		<div class="banner">
+			<div class="banner-container">
+				<img class="banner-image" src="./images/banner1.jpg" alt="">
+				<div class="banner-info">
+					<div class="banner-title">
+					LOREM IPSUM DOLOR SIT AMET
+					</div>
+					<div class="banner-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div>
+				</div>
 			</div>
-			<div class="carousel-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div>
-			<div class="carousel-controller">
-				<div class="prev-btn"></div>
-				<div class="next-btn"></div>
+			<div class="banner-controller clear">
+				<div class="controller-unit prev-btn">&#xe610;</div>
+				<div class="controller-unit next-btn">&#xe610;</div>
 			</div>
 		</div>
 	</section>
-	<section data-indication="about"></section>
+	<section data-indication="about" class="about-page">
+		<h2><span>about us</span></h2>
+		<div class="page-desc">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</div>
+		<div class="row clear">
+			<div class="about-agile">
+				<div class="item-icon icon1">&#xe613;</div>
+				<div class="item-title">Lorem Ipsum Dolor</div>
+				<div class="item-desc">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</div>
+			</div>
+			<div class="about-agile">
+				<div class="item-icon icon2">&#xe60d;</div>
+				<div class="item-title">Consectetur Adipiscing</div>
+				<div class="item-desc">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</div>
+			</div>
+			<div class="about-agile">
+				<div class="item-icon icon3">&#xe60f;</div>
+				<div class="item-title">Facilisis Ultricies</div>
+				<div class="item-desc">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</div>
+			</div>
+			<div class="about-agile">
+				<div class="item-icon icon4">&#xe603;</div>
+				<div class="item-title">Ut Pharetra Felis</div>
+				<div class="item-desc">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</div>
+			</div>
+		</div>
+	</section>
 	<section data-indication="info"></section>
 	<section data-indication="team"></section>
 	<section data-indication="work"></section>
 	<section data-indication="contact"></section>
+
+	<script>
+		let bannerData = [
+		{'bgImg':'./images/banner1.jpg', 'title' : 'LOREM IPSUM DOLOR SIT AMET'},
+		{'bgImg':'./images/banner2.jpg', 'title' : 'CONSECTETUR ADIPISCING'},
+		{'bgImg':'./images/banner3.jpg', 'title' : 'IN QUIS NEQUE CONVALLIS'},
+		{'bgImg':'./images/banner4.jpg', 'title' : 'PULVINAR EROS ET SEMPER'},
+		{'bgImg':'./images/banner5.jpg', 'title' : 'SED FAUCIBUS TURPIS'},
+		]
+		let bannerImg = new Image;
+		bannerImg.src = bannerData[0].bgImg;
+		bannerImg.onload = function () {
+			let bannerImgDOM = document.querySelector('.banner-image');
+			bannerImgDOM.style.height = (window.innerWidth/bannerImg.width)*bannerImg.height>>0 + 'px';
+		}
+		
+	</script>
 </body>
 </html>

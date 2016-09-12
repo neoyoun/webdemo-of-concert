@@ -1,74 +1,199 @@
-$baseFontSize : 10px;
+@import "variable";
+@font-face {font-family: "iconfont";
+  src: url('./font/iconfont.eot');
+  src: url('./font/iconfont.eot#iefix') format('embedded-opentype'),
+  url('./font/iconfont.woff') format('woff'), 
+  url('./font/iconfont.ttf') format('truetype'),
+  url('./font/iconfont.svg#iconfont') format('svg');
+}
 
+.iconfont {
+  font-family:"iconfont" !important;
+  font-size:16px;
+  font-style:normal;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-stroke-width: 0.2px;
+  -moz-osx-font-smoothing: grayscale;
+}
+$baseFontSize : 62.5%;
 html{
 	font-size: $baseFontSize;
+	width: 100%;
+	height: 100%;
+}
+body{
+	width: 100%;
+	height: 100%;
+	font-size:1rem;
 }
 section{
 	width: 100%;
-	height: 100%;
 	position: relative;
 }
-.menu-navigation{
-	position: relative;
+.navbar{
+	position: absolute;
+	width: 100%;
 	z-index: 2;
 	top: 4rem;
-	a {
-		display: block;
-		font-size: 1.7rem;
-		position: relative;
-		width: 7rem;
-		height: 4rem;
-		line-height: 4rem;
-		color: #fff;
-		float: left;
-		text-decoration: none;
-		text-align: center;
-		text-transform: uppercase;
-
-		&::before,&::after{
-			content:'';
+	@at-root .menu-navigation{
+		a {
+			position: relative;
 			display: block;
-			position: absolute;
-			left: 10%;
-			bottom: 0;
-			width: 80%;
-			height: 3px;
-			background-color: #fff;
-			border-radius: 2px;
-			transition:all .1s;
-		}
-		&::before{
-			width: 0;
-			left: 50%;
-			opacity: 0;
-			transform:translateY(100%)
-		}
-		&:hover::before{
-			bottom: 100%;
-			left: 0;
-			opacity: 1;
-			width:100%;
-		}
-		&:hover::after{
-			left: 0;
-			width: 100%;
-		}
-		&:not(:first-child){
-		margin-left: 1rem;
+			float: left;
+			margin-right: 2rem;
+			padding: 1rem;
+			font-size: 1.7rem;
+			color: #fff;
+			text-decoration: none;
+			text-align: center;
+			text-transform: uppercase;
+
+			&::before,&::after{
+				content:'';
+				display: block;
+				position: absolute;
+				left: 0;
+				bottom: 0;
+				width: 100%;
+				height: 2px;
+				background-color: #fff;
+				border-radius: 2px;
+				transition:all .1s;
+			}
+			&::before{
+				width: 0;
+				left: 50%;
+				opacity: 0;
+				transform:translateY(100%)
+			}
+			&:hover::before{
+				bottom: 100%;
+				width: 100%;
+				left: 0;
+				opacity: 1;
+				transform:scale(1.3)
+			}
+			&:hover::after{
+				transform:scale(1.3)
+			}
 		}
 	}
 	.nav-brand {
-		float: right;
-		height: 4rem;
-		line-height: 4rem;
-		font-size: 2rem;
-		color: #fff;
-		text-transform: uppercase;
+			float: right;
+			cursor: pointer;
+			height: 4rem;
+			line-height: 4rem;
+			font-size: 3rem;
+			color: #fff;
+			text-transform: uppercase;
 	}
 }
-.carousel {
-	position: absolute;
-	left: 0;
-	top: 0;
+
+.banner {
+	position: relative;
+	width: 100%;
 	z-index: 1;
+
+	.banner-container {
+		position: relative;
+		width: 100%;
+		height: 100%;
+		overflow: hidden;
+
+		.banner-image {
+			width: 100%;
+			height: 100%;
+		}
+
+		.banner-info {
+			position: absolute;
+			left: 10%;
+			top: 50%;
+			width: 50%;
+			font-family: tahoma,arial;
+
+			.banner-title {
+				font-size:3rem;
+				line-height: 1.4;
+				letter-spacing: .8rem;
+				color: #fff;
+			}
+			.banner-desc {
+				font-size: 2rem;
+				color:#f36523;
+				letter-spacing: .5rem;
+			}
+		}
+	}
+
+	.banner-controller {
+		position: absolute;
+		bottom: 0;
+		left: 10%;
+		width: 50%;
+		height: 5rem;
+		line-height: 5rem;
+
+		.controller-unit{
+			float: left;
+			font-size: 4rem;
+			line-height: 1;
+			font-family: 'iconfont';
+			color: #fff;
+		}
+
+		.prev-btn{
+			transform : rotate(180deg);
+		}
+	}
+}
+
+.about-page{
+	margin-top: 2rem;
+	text-align: center;
+  
+	h2 {
+		text-transform: uppercase;
+		text-align: center;
+		margin-bottom: 3rem;
+
+		span {
+			font-size: 3rem;
+			padding-bottom: 3rem;
+			border-bottom:#e92381 2px solid ;
+		}
+
+	}
+	.page-desc {
+		margin-top: 1rem;
+		margin-bottom: 5rem;
+	}
+	.about-agile {
+		width: 20%;
+		float: left;
+		margin-left: 2.5%;
+		margin-right: 2.5%;
+		padding-top: 1rem;
+		padding-bottom: 2rem;
+		background-color: #e92381;
+		color: #fff;
+
+		.item-icon {
+			width: 10rem;
+			height: 10rem;
+			margin:1rem auto;
+			text-align: center;
+			font-family: 'iconfont';
+			font-size: 8rem;
+			line-height: 10rem;
+			border:5px solid #fff;
+			border-radius: 50%;
+		}
+		.item-title{
+			font-size: 1.7rem;
+			line-height: 2;
+		}
+
+	}
+
 }

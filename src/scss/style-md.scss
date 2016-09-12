@@ -9,7 +9,7 @@
  *
  */
 @import "variable","mixin";
-.menu-navigation{
+.navbar{
 	padding-left: 10%;
 	padding-right: 10%;
 
@@ -17,3 +17,18 @@
 		text-transform:uppercase;	 
 	}
 }
+.xs-visible {
+	display: none;
+}
+.banner {
+
+	.banner-container{
+
+		.banner-image {
+			background-size: cover;
+		}
+	}
+
+	
+}
+

@@ -1,4 +1,4 @@
-@import "variable";
+@import "variable","mixin";
 @font-face {font-family: "iconfont";
   src: url('../font/iconfont.eot'); /* IE9*/
   src: url('../font/iconfont.eot#iefix') format('embedded-opentype'), /* IE6-IE8 */
@@ -15,6 +15,9 @@
   -webkit-text-stroke-width: 0.2px;
   -moz-osx-font-smoothing: grayscale;
 }
+.row {
+		position: relative;
+	}
 $baseFontSize : 62.5%;
 html{
 	font-size: $baseFontSize;
@@ -149,37 +152,7 @@ section{
 	}
 }
 
-@mixin quaterPart {
-	position: relative;
-	width: 20%;
-	float: left;
-	margin-left: 2.5%;
-	margin-right: 2.5%;
-	padding-top: 2rem;
-}
-@mixin pageDesc {
-	margin-top: 1rem;
-	margin-bottom: 5rem;
-}
-@mixin item-icon {
-	width: 10rem;
-	height: 10rem;
-	padding:2rem;
-	margin:0 auto;
-	text-align: center;
-	font-family: 'iconfont';
-	font-size: 6rem;
-	line-height: 1;
-	border-radius: 50%;
-}
-@mixin item-title {
-	font-size: 2rem;
-	line-height: 3;
-}
-@mixin item-desc {
-	padding: 1rem;
-	font-size: 1.4rem;
-}
+
 /* About US stylesheet*/
 .about-page{
 	margin-top: 8rem;
@@ -187,13 +160,10 @@ section{
 	text-align: center;
 	overflow: hidden;
   
-	h2 {
-		text-transform: uppercase;
-		text-align: center;
-		margin-bottom: 3rem;
+	h3.text-center {
+		@include h3Title;
 
 		span {
-			font-size: 3rem;
 			padding-bottom: 2rem;
 			border-bottom:#e92381 3px solid;
 		}
@@ -203,7 +173,7 @@ section{
 		@include pageDesc;
 	}
 	.about-agile {
-		@include quaterPart;
+		@include agile;
 		padding-bottom: 200rem;
 		margin-bottom: -198rem;
 		background-color: #e92381;
@@ -245,17 +215,13 @@ section{
 	background-size:cover;
 
 	h3.text-center {
-		position: relative;
-		text-align: center;
-		font-size: 3rem;
-		text-transform: uppercase;
-		padding-bottom: 4rem;
+		@include h3Title;
 
 		&::after{
 			content: '';
 			position: absolute;
 			left: 50%;
-			bottom: 0;
+			bottom: 25%;
 			width: 14%;
 			height: .4rem;
 			margin-left: -7%;
@@ -267,12 +233,19 @@ section{
 		@include pageDesc;
 	}
 
+	.container {
+		border-top: 1px solid #ff9900;
+		padding-top: .5rem;
+	}
 	.row {
-		position: relative;
+
+		&>:not(:first-child) {
+			border-left: 1px solid #ff9900;
+		}
 	}
 
 	.info-agile {
-		@include quaterPart;
+		@include agile;
 
 		.item-icon {
 			@include item-icon;
@@ -283,13 +256,18 @@ section{
 			transition:all .5s;
 
 			&::after {
+				content:'';
 				position: absolute;
+				left: -3px;
+				top: -3px;
 				width: 100%;
 				height: 100%;
 				border:3px solid #ff9900;
+				border-radius: 50%;
 				transform:scale(1.5);
 				opacity: 0;
-				box-shadow: 0 0 2px #ff9900 inset;
+				box-shadow: 0 0 10px #ee9900 inset,0 0 5px #ee9900;
+				transition:transform .2s , opacity .3s;
 			}
 		}
 
@@ -314,6 +292,127 @@ section{
 
 		&:not(:first-child)::after {
 			
+		}
+	}
+}
+/* team-page stylesheets*/
+.team-page {
+	padding:8rem 0;
+	text-align: center;
+
+	h3.text-center {
+		@include h3Title;
+	}
+
+	.page-desc {
+		@include pageDesc;
+		color: #666;
+
+		&::after,
+		&::before {
+			content:'';
+			position: absolute;
+			top: 50%;
+			width: 4rem;
+			height: .2rem;
+			transform:translateY(-50%);
+			background-color: #333;
+		}
+
+		&::before {
+			margin-left: -3rem;
+		}
+
+		&::after {
+			margin-left: -2rem;
+		}
+	}
+
+	.team-agile {
+		@include agile;
+		padding-top: 0;
+
+		.member-face {
+
+			img {
+				max-width: 100%;
+			}
+			.member-name {
+				font-size: $font-size-lg;
+				line-height: 3rem;
+			}
+		}
+
+		.member-info {
+			position: absolute;
+			left: 0;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			background-color: hsla(209,97%,23%,.81);
+			color: #fff;
+			font-size: $font-size-base;
+
+			&::before {
+				content : '';
+				position: absolute;
+				left: 50%;
+				top: 40%;
+				margin-left: -2rem;
+				width : 4rem;
+				height: 2px;
+				background-color: #fff;
+			}
+
+			.info-title {
+				margin-top: 2rem;
+				margin-bottom: 1rem;
+				font-size: $font-size-lg;
+			}
+			.info-post {
+				margin-bottom: 20%;
+			}
+
+			.info-desc {
+				font-family: Georgia, serif;
+				font-style: italic;
+				padding-left: 5px;
+				padding-right: 5px;
+			}
+
+			.info-contact {
+				margin-top: 1rem;
+				display: flex;
+				justify-content : space-around;
+					a {
+					position: relative;
+					z-index: 2;
+					width: 2.5rem;
+					height: 2.5rem;
+					line-height: 2.5rem;
+					color: #fff;
+					text-decoration: none;
+					@extend .col-3;
+
+					&::before {
+						content: '';
+						position: absolute;
+						left: -2px;
+						top: -2px;
+						z-index: 1;
+						width: 100%;
+						height: 100%;
+						border: 2px solid #fff;
+						background-color: #ff9900;
+						transform: rotate(45deg);
+					}
+
+					i {
+						position: relative;
+						z-index: 3;
+					}
+				}
+			}
 		}
 	}
 }

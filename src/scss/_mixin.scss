@@ -1,6 +1,47 @@
+@import "grid";
 $fullwidth : 100%;
 @for $i from 1 through 12 {
 	.col-#{$i} {
 		width : $fullwidth/12 * $i;
+		float: left;
 	}
+}
+@mixin agile {
+	position: relative;
+	width: 80%;
+	margin-left: 10%;
+	margin-right: 10%;
+	padding-top: 2rem;
+}
+@mixin h3Title {
+	position: relative;
+	text-align: center;
+	font-size: 4rem;
+	text-transform: uppercase;
+	padding-bottom: 4rem;
+}
+@mixin pageDesc {
+	position: relative;
+	margin-top: 1rem;
+	margin-bottom: 5rem;
+	font-size: $font-size-lg;
+}
+@mixin item-icon {
+	width: 8rem;
+	height: 8rem;
+	padding:1rem;
+	margin:0 auto;
+	text-align: center;
+	font-family: 'iconfont';
+	font-size: 6rem;
+	line-height: 1;
+	border-radius: 50%;
+}
+@mixin item-title {
+	font-size: 2rem;
+	line-height: 3;
+}
+@mixin item-desc {
+	padding: 1rem;
+	font-size: 1.4rem;
 }

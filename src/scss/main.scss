@@ -15,10 +15,7 @@
   -webkit-text-stroke-width: 0.2px;
   -moz-osx-font-smoothing: grayscale;
 }
-.row {
-		position: relative;
-	}
-$baseFontSize : 62.5%;
+
 html{
 	font-size: 10px;
 	width: 100%;
@@ -154,11 +151,8 @@ section{
 
 /* About US stylesheet*/
 .about-page{
-	margin-top: 80px;
-	margin-bottom: 80px;
-	text-align: center;
-	overflow: hidden;
-  
+	@extend %pageSection;
+
 	h3.text-center {
 		@include h3Title;
 
@@ -172,7 +166,6 @@ section{
 		@include pageDesc;
 	}
 	.about-agile {
-		@include set-column(3);
 		@include agile;
 		background-color: #e92381;
 		color: #fff;
@@ -188,8 +181,6 @@ section{
 		}
 		.item-desc {
 			@include item-desc;
-			padding-bottom: 2000px;
-			margin-bottom:  -1950px;
 		}
 
 		&:hover {
@@ -209,10 +200,9 @@ section{
 
 /*info-page stylesheets*/
 .info-page{
-	padding:80px 0;
+	@extend %pageSection;
 	background-image: url('../images/info.jpg');
 	color:#fff;
-	text-align: center;
 	background-size:cover;
 
 	h3.text-center {
@@ -298,8 +288,7 @@ section{
 }
 /* team-page stylesheets*/
 .team-page {
-	padding:80px 0;
-	text-align: center;
+	@extend %pageSection;
 
 	h3.text-center {
 		@include h3Title;
@@ -358,9 +347,9 @@ section{
 				content : '';
 				position: absolute;
 				left: 50%;
-				top: 40%;
+				top: 100px;
 				margin-left: -20px;
-				width : 4rem;
+				width : 40px;
 				height: 2px;
 				background-color: #fff;
 			}
@@ -393,7 +382,6 @@ section{
 					line-height: 25px;
 					color: #fff;
 					text-decoration: none;
-					@extend .col-3;
 
 					&::before {
 						content: '';

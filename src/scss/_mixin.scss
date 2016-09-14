@@ -1,19 +1,24 @@
-@import "grid";
-$fullwidth : 100%;
-@for $i from 1 through 12 {
-	.col-#{$i} {
-		width : $fullwidth/12 * $i;
-		float: left;
-	}
+@mixin clearfix() {
+  &:before,
+  &:after {
+    content: "";
+    display: table; 
+  }
+  &:after {
+    clear: both;
+  }
 }
-@mixin set-column($culumns){
-	width : $fullwidth / 12 * $culumns;
-	float: left;
+%pageSection {
+	margin-top: 80px;
+	margin-bottom: 80px;
+	text-align: center;
+	overflow: hidden;
 }
 @mixin agile {
-	padding-left: 30px;
-	padding-right: 30px;
 	position: relative;
+	padding-top: 30px;
+	padding-bottom: 2000px;
+	margin-bottom: -1950px;
 }
 @mixin h3Title {
 	position: relative;
@@ -45,5 +50,5 @@ $fullwidth : 100%;
 }
 @mixin item-desc {
 	padding: 10px;
-	font-size: 1.40px;
+	font-size: 14px;
 }

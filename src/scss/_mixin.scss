@@ -6,42 +6,44 @@ $fullwidth : 100%;
 		float: left;
 	}
 }
+@mixin set-column($culumns){
+	width : $fullwidth / 12 * $culumns;
+	float: left;
+}
 @mixin agile {
+	padding-left: 30px;
+	padding-right: 30px;
 	position: relative;
-	width: 80%;
-	margin-left: 10%;
-	margin-right: 10%;
-	padding-top: 2rem;
 }
 @mixin h3Title {
 	position: relative;
 	text-align: center;
-	font-size: 4rem;
+	font-size: 40px;
 	text-transform: uppercase;
-	padding-bottom: 4rem;
+	padding-bottom: 40px;
 }
 @mixin pageDesc {
 	position: relative;
-	margin-top: 1rem;
-	margin-bottom: 5rem;
+	margin-top: 10px;
+	margin-bottom: 50px;
 	font-size: $font-size-lg;
 }
 @mixin item-icon {
-	width: 8rem;
-	height: 8rem;
-	padding:1rem;
+	width: 80px;
+	height: 80px;
+	padding:10px;
 	margin:0 auto;
 	text-align: center;
 	font-family: 'iconfont';
-	font-size: 6rem;
+	font-size: 50px;
 	line-height: 1;
 	border-radius: 50%;
 }
 @mixin item-title {
-	font-size: 2rem;
+	font-size: 20px;
 	line-height: 3;
 }
 @mixin item-desc {
-	padding: 1rem;
-	font-size: 1.4rem;
+	padding: 10px;
+	font-size: 1.40px;
 }

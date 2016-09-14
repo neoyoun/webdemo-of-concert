@@ -64,14 +64,13 @@
   position: relative; }
 
 html {
-  font-size: 15px;
+  font-size: 10px;
   width: 100%;
   height: 100%; }
 
 body {
   width: 100%;
-  height: 100%;
-  font-size: 1rem; }
+  height: 100%; }
 
 section {
   width: 100%;
@@ -81,14 +80,14 @@ section {
   position: absolute;
   width: 100%;
   z-index: 2;
-  top: 4rem; }
+  top: 40px; }
   .menu-navigation a {
     position: relative;
     display: block;
     float: left;
-    margin-right: 2rem;
-    padding: 1rem;
-    font-size: 1.7rem;
+    margin-right: 20px;
+    padding: 10px;
+    font-size: 17px;
     color: #fff;
     text-decoration: none;
     text-align: center;
@@ -120,9 +119,9 @@ section {
   .navbar .nav-brand {
     float: right;
     cursor: pointer;
-    height: 4rem;
-    line-height: 4rem;
-    font-size: 3rem;
+    height: 40px;
+    line-height: 40px;
+    font-size: 30px;
     color: #fff;
     text-transform: uppercase; }
 
@@ -145,23 +144,23 @@ section {
       width: 50%;
       font-family: tahoma,arial; }
       .banner .banner-container .banner-info .banner-title {
-        font-size: 3rem;
+        font-size: 30px;
         line-height: 1.4;
-        letter-spacing: .8rem;
+        letter-spacing: 8px;
         color: #fff; }
       .banner .banner-container .banner-info .banner-desc {
-        font-size: 2rem;
+        font-size: 20px;
         color: #f36523;
-        letter-spacing: .5rem; }
+        letter-spacing: 5px; }
   .banner .banner-controller {
     position: absolute;
-    bottom: 2rem;
+    bottom: 20px;
     left: 10%; }
     .banner .banner-controller .controller-unit {
-      margin-right: 1rem;
+      margin-right: 10px;
       float: left;
       font-family: 'iconfont';
-      font-size: 5rem;
+      font-size: 50px;
       line-height: 1;
       color: #fff;
       cursor: pointer;
@@ -172,52 +171,53 @@ section {
 
 /* About US stylesheet*/
 .about-page {
-  margin-top: 8rem;
-  margin-bottom: 8rem;
+  margin-top: 80px;
+  margin-bottom: 80px;
   text-align: center;
   overflow: hidden; }
   .about-page h3.text-center {
     position: relative;
     text-align: center;
-    font-size: 4rem;
+    font-size: 40px;
     text-transform: uppercase;
-    padding-bottom: 4rem; }
+    padding-bottom: 40px; }
     .about-page h3.text-center span {
-      padding-bottom: 2rem;
+      padding-bottom: 20px;
       border-bottom: #e92381 3px solid; }
   .about-page .page-desc {
     position: relative;
-    margin-top: 1rem;
-    margin-bottom: 5rem;
-    font-size: 1.75rem; }
+    margin-top: 10px;
+    margin-bottom: 50px;
+    font-size: 17.5px; }
   .about-page .about-agile {
+    width: 25%;
+    float: left;
+    padding-left: 30px;
+    padding-right: 30px;
     position: relative;
-    width: 80%;
-    margin-left: 10%;
-    margin-right: 10%;
-    padding-top: 2rem;
-    padding-bottom: 200rem;
-    margin-bottom: -198rem;
     background-color: #e92381;
     color: #fff;
     transition: background-color .5s; }
     .about-page .about-agile .item-icon {
-      width: 8rem;
-      height: 8rem;
-      padding: 1rem;
+      width: 80px;
+      height: 80px;
+      padding: 10px;
       margin: 0 auto;
       text-align: center;
       font-family: 'iconfont';
-      font-size: 6rem;
+      font-size: 50px;
       line-height: 1;
       border-radius: 50%;
-      border: 5px solid #fff; }
+      border: 5px solid #fff;
+      margin-top: 20px; }
     .about-page .about-agile .item-title {
-      font-size: 2rem;
+      font-size: 20px;
       line-height: 3; }
     .about-page .about-agile .item-desc {
-      padding: 1rem;
-      font-size: 1.4rem; }
+      padding: 10px;
+      font-size: 1.40px;
+      padding-bottom: 2000px;
+      margin-bottom: -1950px; }
     .about-page .about-agile:hover {
       background-color: #003466; }
       .about-page .about-agile:hover .item-icon {
@@ -229,7 +229,7 @@ section {
     transform: rotate(360deg); } }
 /*info-page stylesheets*/
 .info-page {
-  padding: 8rem 0;
+  padding: 80px 0;
   background-image: url("../images/info.jpg");
   color: #fff;
   text-align: center;
@@ -237,42 +237,40 @@ section {
   .info-page h3.text-center {
     position: relative;
     text-align: center;
-    font-size: 4rem;
+    font-size: 40px;
     text-transform: uppercase;
-    padding-bottom: 4rem; }
+    padding-bottom: 40px; }
     .info-page h3.text-center::after {
       content: '';
       position: absolute;
       left: 50%;
       bottom: 25%;
       width: 14%;
-      height: .4rem;
+      height: 4px;
       margin-left: -7%;
       background-color: #ff9900; }
   .info-page .page-desc {
     position: relative;
-    margin-top: 1rem;
-    margin-bottom: 5rem;
-    font-size: 1.75rem; }
+    margin-top: 10px;
+    margin-bottom: 50px;
+    font-size: 17.5px; }
   .info-page .container {
     border-top: 1px solid #ff9900;
-    padding-top: .5rem; }
+    padding-top: 5px; }
   .info-page .row > :not(:first-child) {
     border-left: 1px solid #ff9900; }
   .info-page .info-agile {
-    position: relative;
-    width: 80%;
-    margin-left: 10%;
-    margin-right: 10%;
-    padding-top: 2rem; }
+    padding-left: 30px;
+    padding-right: 30px;
+    position: relative; }
     .info-page .info-agile .item-icon {
-      width: 8rem;
-      height: 8rem;
-      padding: 1rem;
+      width: 80px;
+      height: 80px;
+      padding: 10px;
       margin: 0 auto;
       text-align: center;
       font-family: 'iconfont';
-      font-size: 6rem;
+      font-size: 50px;
       line-height: 1;
       border-radius: 50%;
       transform: scale(0.9);
@@ -300,52 +298,50 @@ section {
         transform: scale(1.2);
         opacity: 1; }
     .info-page .info-agile .item-title {
-      font-size: 2rem;
+      font-size: 20px;
       line-height: 3; }
     .info-page .info-agile .item-desc {
-      padding: 1rem;
-      font-size: 1.4rem; }
+      padding: 10px;
+      font-size: 1.40px; }
 
 /* team-page stylesheets*/
 .team-page {
-  padding: 8rem 0;
+  padding: 80px 0;
   text-align: center; }
   .team-page h3.text-center {
     position: relative;
     text-align: center;
-    font-size: 4rem;
+    font-size: 40px;
     text-transform: uppercase;
-    padding-bottom: 4rem; }
+    padding-bottom: 40px; }
   .team-page .page-desc {
     position: relative;
-    margin-top: 1rem;
-    margin-bottom: 5rem;
-    font-size: 1.75rem;
+    margin-top: 10px;
+    margin-bottom: 50px;
+    font-size: 17.5px;
     color: #666; }
     .team-page .page-desc::after, .team-page .page-desc::before {
       content: '';
       position: absolute;
       top: 50%;
-      width: 4rem;
-      height: .2rem;
+      width: 40px;
+      height: 2px;
       transform: translateY(-50%);
       background-color: #333; }
     .team-page .page-desc::before {
-      margin-left: -3rem; }
+      margin-left: -30px; }
     .team-page .page-desc::after {
-      margin-left: -2rem; }
+      margin-left: -20px; }
   .team-page .team-agile {
+    padding-left: 30px;
+    padding-right: 30px;
     position: relative;
-    width: 80%;
-    margin-left: 10%;
-    margin-right: 10%;
-    padding-top: 2rem;
     padding-top: 0; }
     .team-page .team-agile .member-face img {
       max-width: 100%; }
     .team-page .team-agile .member-face .member-name {
-      font-size: 1.75rem;
-      line-height: 3rem; }
+      font-size: 17.5px;
+      line-height: 30px; }
     .team-page .team-agile .member-info {
       position: absolute;
       left: 0;
@@ -354,20 +350,20 @@ section {
       bottom: 0;
       background-color: rgba(2, 61, 116, 0.81);
       color: #fff;
-      font-size: 1.4rem; }
+      font-size: 14px; }
       .team-page .team-agile .member-info::before {
         content: '';
         position: absolute;
         left: 50%;
         top: 40%;
-        margin-left: -2rem;
+        margin-left: -20px;
         width: 4rem;
         height: 2px;
         background-color: #fff; }
       .team-page .team-agile .member-info .info-title {
-        margin-top: 2rem;
-        margin-bottom: 1rem;
-        font-size: 1.75rem; }
+        margin-top: 20px;
+        margin-bottom: 10px;
+        font-size: 17.5px; }
       .team-page .team-agile .member-info .info-post {
         margin-bottom: 20%; }
       .team-page .team-agile .member-info .info-desc {
@@ -376,15 +372,15 @@ section {
         padding-left: 5px;
         padding-right: 5px; }
       .team-page .team-agile .member-info .info-contact {
-        margin-top: 1rem;
+        margin-top: 20px;
         display: flex;
         justify-content: space-around; }
         .team-page .team-agile .member-info .info-contact a {
           position: relative;
           z-index: 2;
-          width: 2.5rem;
-          height: 2.5rem;
-          line-height: 2.5rem;
+          width: 25px;
+          height: 25px;
+          line-height: 25px;
           color: #fff;
           text-decoration: none; }
           .team-page .team-agile .member-info .info-contact a::before {

@@ -1,8 +1,19 @@
-.about-page, .info-page, .team-page {
-  margin-top: 80px;
-  margin-bottom: 80px;
+.about-page, .info-page, .team-page, .work-page {
   text-align: center;
-  overflow: hidden; }
+  overflow: hidden;
+  padding: 80px 0; }
+  @media (max-width: 1024px) {
+    .about-page, .info-page, .team-page, .work-page {
+      padding: 50px 0; } }
+  @media (max-width: 1024px) {
+    .about-page, .info-page, .team-page, .work-page {
+      padding: 35px 0; } }
+  @media (max-width: 770px) {
+    .about-page, .info-page, .team-page, .work-page {
+      padding: 20px 0; } }
+  @media (max-width: 480px) {
+    .about-page, .info-page, .team-page, .work-page {
+      padding: 5px 0; } }
 
 @font-face {
   font-family: "iconfont";
@@ -129,6 +140,7 @@ section {
   position: relative;
   text-align: center;
   font-size: 40px;
+  line-height: 2;
   text-transform: uppercase;
   padding-bottom: 40px; }
   .about-page h3.text-center span {
@@ -138,12 +150,13 @@ section {
   position: relative;
   margin-top: 10px;
   margin-bottom: 50px;
-  font-size: 17.5px; }
+  font-size: 17.5px;
+  text-transform: capitalize; }
+.about-page .row > div {
+  margin-top: 10px; }
 .about-page .about-agile {
   position: relative;
   padding-top: 30px;
-  padding-bottom: 2000px;
-  margin-bottom: -1950px;
   background-color: #e92381;
   color: #fff;
   transition: background-color .5s; }
@@ -164,7 +177,10 @@ section {
     line-height: 3; }
   .about-page .about-agile .item-desc {
     padding: 10px;
-    font-size: 14px; }
+    font-size: 14px;
+    height: 100px;
+    overflow: hidden;
+    text-overflow: ellipsis; }
   .about-page .about-agile:hover {
     background-color: #003466; }
     .about-page .about-agile:hover .item-icon {
@@ -183,6 +199,7 @@ section {
     position: relative;
     text-align: center;
     font-size: 40px;
+    line-height: 2;
     text-transform: uppercase;
     padding-bottom: 40px; }
     .info-page h3.text-center::after {
@@ -198,17 +215,23 @@ section {
     position: relative;
     margin-top: 10px;
     margin-bottom: 50px;
-    font-size: 17.5px; }
-  .info-page .container {
-    border-top: 1px solid #ff9900;
-    padding-top: 5px; }
-  .info-page .row > :not(:first-child) {
-    border-left: 1px solid #ff9900; }
+    font-size: 17.5px;
+    text-transform: capitalize; }
+  @media (min-width: 771px) {
+    .info-page .container, .info-page .navbar {
+      border-top: 1px solid #ff9900;
+      padding-top: 5px; } }
+  @media (min-width: 771px) {
+    .info-page .row > :not(:first-child) {
+      border-left: 1px solid #ff9900; } }
+  .info-page .row > div {
+    margin-top: 10px; }
   .info-page .info-agile {
     position: relative;
-    padding-top: 30px;
-    padding-bottom: 2000px;
-    margin-bottom: -1950px; }
+    padding-top: 30px; }
+    @media (max-width: 770px) {
+      .info-page .info-agile {
+        border: 1px solid #fff; } }
     .info-page .info-agile .item-icon {
       width: 80px;
       height: 80px;
@@ -237,24 +260,30 @@ section {
         opacity: 0;
         box-shadow: 0 0 10px #ee9900 inset,0 0 5px #ee9900;
         transition: transform .2s , opacity .3s; }
-    .info-page .info-agile:hover .item-icon {
-      color: #fff;
-      background-color: #ff9900; }
-      .info-page .info-agile:hover .item-icon::after {
-        transform: scale(1.2);
-        opacity: 1; }
+    .info-page .info-agile:hover {
+      border-color: #ff9900; }
+      .info-page .info-agile:hover .item-icon {
+        color: #fff;
+        background-color: #ff9900; }
+        .info-page .info-agile:hover .item-icon::after {
+          transform: scale(1.2);
+          opacity: 1; }
     .info-page .info-agile .item-title {
       font-size: 20px;
       line-height: 3; }
     .info-page .info-agile .item-desc {
       padding: 10px;
-      font-size: 14px; }
+      font-size: 14px;
+      height: 100px;
+      overflow: hidden;
+      text-overflow: ellipsis; }
 
 /* team-page stylesheets*/
 .team-page h3.text-center {
   position: relative;
   text-align: center;
   font-size: 40px;
+  line-height: 2;
   text-transform: uppercase;
   padding-bottom: 40px; }
 .team-page .page-desc {
@@ -262,6 +291,7 @@ section {
   margin-top: 10px;
   margin-bottom: 50px;
   font-size: 17.5px;
+  text-transform: capitalize;
   color: #666; }
   .team-page .page-desc::after, .team-page .page-desc::before {
     content: '';
@@ -275,71 +305,188 @@ section {
     margin-left: -30px; }
   .team-page .page-desc::after {
     margin-left: -20px; }
+.team-page .row > div {
+  margin-top: 10px; }
 .team-page .team-agile {
   position: relative;
   padding-top: 30px;
-  padding-bottom: 2000px;
-  margin-bottom: -1950px;
-  padding-top: 0; }
-  .team-page .team-agile .member-face img {
-    max-width: 100%; }
+  padding-top: 0;
+  border: 1px solid #d8d8d8; }
+  .team-page .team-agile .member-face > div {
+    overflow: hidden; }
+    .team-page .team-agile .member-face > div img {
+      max-width: 100%;
+      height: auto;
+      transition: .5s;
+      transform: scale(1); }
   .team-page .team-agile .member-face .member-name {
     font-size: 17.5px;
-    line-height: 30px; }
-  .team-page .team-agile .member-info {
+    line-height: 2.5;
+    background-color: #fff;
+    position: relative;
+    z-index: 1; }
+  .member-info {
     position: absolute;
+    z-index: 2;
     left: 0;
     top: 0;
     right: 0;
     bottom: 0;
     background-color: rgba(2, 61, 116, 0.81);
     color: #fff;
-    font-size: 14px; }
-    .team-page .team-agile .member-info::before {
+    font-size: 14px;
+    opacity: 0;
+    overflow: hidden;
+    transition: opacity .3s; }
+    .member-info::before {
       content: '';
       position: absolute;
+      z-index: 2;
       left: 50%;
-      top: 100px;
+      top: 40%;
       margin-left: -20px;
       width: 40px;
       height: 2px;
-      background-color: #fff; }
-    .team-page .team-agile .member-info .info-title {
-      margin-top: 20px;
-      margin-bottom: 10px;
-      font-size: 17.5px; }
-    .team-page .team-agile .member-info .info-post {
-      margin-bottom: 20%; }
-    .team-page .team-agile .member-info .info-desc {
+      opacity: 0;
+      background-color: #fff;
+      transition: all .5s; }
+    .member-info .top-part, .member-info .bottom-part {
+      position: absolute;
+      width: 100%;
+      left: 0;
+      transition: all .4s; }
+    .member-info .top-part {
+      top: 0;
+      padding: 20px 0;
+      transform: translateY(-100%); }
+      .member-info .top-part .info-title {
+        transform: translateY(-100%);
+        font-size: 17.5px;
+        transition: all .5s; }
+      .member-info .top-part .info-post {
+        transform: translateY(-100%);
+        transition: all .5s .1s; }
+    .member-info .bottom-part {
+      bottom: 0;
       font-family: Georgia, serif;
       font-style: italic;
       padding-left: 5px;
-      padding-right: 5px; }
-    .team-page .team-agile .member-info .info-contact {
-      margin-top: 20px;
-      display: flex;
-      justify-content: space-around; }
-      .team-page .team-agile .member-info .info-contact a {
-        position: relative;
-        z-index: 2;
-        width: 25px;
-        height: 25px;
-        line-height: 25px;
-        color: #fff;
-        text-decoration: none; }
-        .team-page .team-agile .member-info .info-contact a::before {
-          content: '';
-          position: absolute;
-          left: -2px;
-          top: -2px;
-          z-index: 1;
-          width: 100%;
-          height: 100%;
-          border: 2px solid #fff;
-          background-color: #ff9900;
-          transform: rotate(45deg); }
-        .team-page .team-agile .member-info .info-contact a i {
+      padding-right: 5px;
+      transform: translateY(100%); }
+      .member-info .bottom-part .info-desc {
+        transform: translateY(100%);
+        transition: all .4s; }
+      .member-info .bottom-part .info-contact {
+        margin: 20px auto;
+        display: flex;
+        justify-content: space-around;
+        transform: translateY(100%);
+        transition: all .4s .1s; }
+        .member-info .bottom-part .info-contact a {
           position: relative;
-          z-index: 3; }
+          z-index: 2;
+          width: 25px;
+          height: 25px;
+          line-height: 25px;
+          color: #fff;
+          transition: all .2s;
+          text-decoration: none; }
+          .member-info .bottom-part .info-contact a::before {
+            content: '';
+            position: absolute;
+            left: -2px;
+            top: -2px;
+            z-index: 1;
+            width: 100%;
+            height: 100%;
+            border: 2px solid #fff;
+            background-color: #ff9900;
+            transform: rotate(45deg);
+            transition: all .2s; }
+          .member-info .bottom-part .info-contact a i {
+            position: relative;
+            z-index: 3; }
+          .member-info .bottom-part .info-contact a:hover {
+            color: #ff9900; }
+            .member-info .bottom-part .info-contact a:hover::before {
+              background-color: #fff; }
+  .team-page .team-agile:hover .member-face img {
+    transform: scale(1.1, 1.1); }
+  .team-page .team-agile:hover .member-info {
+    opacity: 1; }
+    .team-page .team-agile:hover .member-info::before {
+      opacity: 1; }
+    .team-page .team-agile:hover .member-info .top-part {
+      transform: translateY(0); }
+      .team-page .team-agile:hover .member-info .top-part * {
+        transform: translateY(0); }
+    .team-page .team-agile:hover .member-info .bottom-part {
+      transform: translateY(0); }
+      .team-page .team-agile:hover .member-info .bottom-part * {
+        transform: translateY(0); }
+
+/*work-page stylesheets*/
+.work-page {
+  background-color: #e92381;
+  color: #fff; }
+  .work-page h3.text-center {
+    position: relative;
+    text-align: center;
+    font-size: 40px;
+    line-height: 2;
+    text-transform: uppercase;
+    padding-bottom: 40px; }
+  .work-page .page-desc {
+    position: relative;
+    margin-top: 10px;
+    margin-bottom: 50px;
+    font-size: 17.5px;
+    text-transform: capitalize; }
+  .work-page .carousel {
+    position: relative;
+    width: 100%;
+    overflow: hidden; }
+    .work-page .carousel .scroller-list {
+      position: relative;
+      width: 100%;
+      height: 400px;
+      overflow: hidden; }
+      .work-page .carousel .scroller-list .scroller-item {
+        position: relative;
+        float: left;
+        height: 100%;
+        padding: 0 40px; }
+        .work-page .carousel .scroller-list .scroller-item .scroller-item-face {
+          width: 100px;
+          height: 100px;
+          margin: 30px auto;
+          transform: rotate(45deg);
+          overflow: hidden; }
+          .work-page .carousel .scroller-list .scroller-item .scroller-item-face .img-wrap {
+            width: 142px;
+            height: 142px;
+            margin-left: -21px;
+            margin-top: -21px;
+            transform: rotate(-45deg); }
+            .work-page .carousel .scroller-list .scroller-item .scroller-item-face .img-wrap img {
+              width: 100%;
+              height: 100%; }
+        .work-page .carousel .scroller-list .scroller-item .scroller-item-desc {
+          font-size: 14px; }
+          .work-page .carousel .scroller-list .scroller-item .scroller-item-desc h3.desc-name {
+            font-size: 17.5px;
+            line-height: 2; }
+    .work-page .carousel .carousel-controller {
+      font-family: 'iconfont'; }
+      .work-page .carousel .carousel-controller .controller-unit {
+        position: absolute;
+        top: 50%;
+        margin-top: -15px;
+        font-size: 30px;
+        line-height: 1; }
+      .work-page .carousel .carousel-controller .prev-btn {
+        left: 0; }
+      .work-page .carousel .carousel-controller .next-btn {
+        right: 0; }
 
 /*# sourceMappingURL=main.css.map */

@@ -1,10 +1,10 @@
 
 @font-face {font-family: "iconfont";
-  src: url('iconfont.eot?t=1473698953'); /* IE9*/
-  src: url('iconfont.eot?t=1473698953#iefix') format('embedded-opentype'), /* IE6-IE8 */
-  url('iconfont.woff?t=1473698953') format('woff'), /* chrome, firefox */
-  url('iconfont.ttf?t=1473698953') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
-  url('iconfont.svg?t=1473698953#iconfont') format('svg'); /* iOS 4.1- */
+  src: url('iconfont.eot?t=1473871409'); /* IE9*/
+  src: url('iconfont.eot?t=1473871409#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url('iconfont.woff?t=1473871409') format('woff'), /* chrome, firefox */
+  url('iconfont.ttf?t=1473871409') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
+  url('iconfont.svg?t=1473871409#iconfont') format('svg'); /* iOS 4.1- */
 }
 
 .iconfont {
@@ -42,3 +42,4 @@
 .icon-mima:before { content: "\e618"; }
 .icon-rili:before { content: "\e619"; }
 .icon-jiantou-copy:before { content: "\e6101"; }
+.icon-arrow-copy:before { content: "\e6061"; }

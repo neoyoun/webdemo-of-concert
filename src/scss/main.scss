@@ -34,6 +34,7 @@ section{
 	width: 100%;
 	z-index: 2;
 	top: 40px;
+	@extend .container;
 	@at-root .menu-navigation{
 		a {
 			position: relative;
@@ -165,6 +166,11 @@ section{
 	.page-desc {
 		@include pageDesc;
 	}
+	.row {
+		&>div{
+			margin-top: 10px;
+		}
+	}
 	.about-agile {
 		@include agile;
 		background-color: #e92381;
@@ -225,18 +231,29 @@ section{
 	}
 
 	.container {
-		border-top: 1px solid #ff9900;
-		padding-top: 5px;
+		@media (min-width:$screen-md-min) {
+			border-top: 1px solid #ff9900;
+			padding-top: 5px;
+		}
 	}
 	.row {
 
-		&>:not(:first-child) {
-			border-left: 1px solid #ff9900;
+		@media (min-width: $screen-md-min) {
+			&>:not(:first-child) {
+				border-left: 1px solid #ff9900;
+			}
+		}
+		&>div {
+			margin-top: 10px;
 		}
 	}
 
 	.info-agile {
 		@include agile;
+
+		@media (max-width: $screen-sm-max) {
+			border:1px solid #fff;
+		}
 
 		.item-icon {
 			@include item-icon;
@@ -263,6 +280,7 @@ section{
 		}
 
 		&:hover {
+			border-color: #ff9900;
 			.item-icon {
 				color: #fff;
 				background-color: #ff9900;
@@ -279,10 +297,6 @@ section{
 		}
 		.item-desc {
 			@include item-desc;
-		}
-
-		&:not(:first-child)::after {
-			
 		}
 	}
 }
@@ -318,23 +332,41 @@ section{
 		}
 	}
 
+	.row {
+
+		&>div {
+			margin-top: 10px;
+		}
+	}
+
 	.team-agile {
 		@include agile;
 		padding-top: 0;
+		border:1px solid #d8d8d8;
 
 		.member-face {
 
-			img {
-				max-width: 100%;
+			&>div{
+				overflow: hidden;
+					img {
+					max-width: 100%;
+					height: auto;
+					transition:.5s;
+					transform: scale(1);
+				}
 			}
 			.member-name {
 				font-size: $font-size-lg;
-				line-height: 30px;
+				line-height: 2.5;
+				background-color: #fff;
+				position: relative;
+				z-index: 1;
 			}
 		}
 
-		.member-info {
+		@at-root .member-info {
 			position: absolute;
+			z-index: 2;
 			left: 0;
 			top: 0;
 			right: 0;
@@ -342,65 +374,206 @@ section{
 			background-color: hsla(209,97%,23%,.81);
 			color: #fff;
 			font-size: $font-size-base;
+			opacity: 0;
+			overflow: hidden;
+			transition:opacity .3s;
 
 			&::before {
 				content : '';
 				position: absolute;
+				z-index: 2;
 				left: 50%;
-				top: 100px;
+				top: 40%;
 				margin-left: -20px;
 				width : 40px;
 				height: 2px;
+				opacity: 0;
 				background-color: #fff;
+				transition:all .5s;
 			}
 
-			.info-title {
-				margin-top: 20px;
-				margin-bottom: 10px;
-				font-size: $font-size-lg;
-			}
-			.info-post {
-				margin-bottom: 20%;
+			.top-part,.bottom-part {
+				position: absolute;
+				width: 100%;
+				left: 0;
+				transition:all .4s;
 			}
 
-			.info-desc {
+			.top-part {
+				top: 0;
+				padding:20px 0;
+				transform: translateY(-100%);
+
+				.info-title {
+					transform: translateY(-100%);
+					font-size: $font-size-lg;
+					transition:all .5s;
+				}
+				.info-post {
+					transform: translateY(-100%);
+					transition:all .5s .1s;
+				}
+			}
+
+			.bottom-part {
+				bottom: 0;
 				font-family: Georgia, serif;
 				font-style: italic;
 				padding-left: 5px;
 				padding-right: 5px;
-			}
+				transform: translateY(100%);
 
-			.info-contact {
-				margin-top: 20px;
-				display: flex;
-				justify-content : space-around;
-					a {
-					position: relative;
-					z-index: 2;
-					width: 25px;
-					height: 25px;
-					line-height: 25px;
-					color: #fff;
-					text-decoration: none;
+				.info-desc {
+					transform:translateY(100%);
+					transition:all .4s;
+				}
 
-					&::before {
-						content: '';
-						position: absolute;
-						left: -2px;
-						top: -2px;
-						z-index: 1;
-						width: 100%;
-						height: 100%;
-						border: 2px solid #fff;
-						background-color: #ff9900;
-						transform: rotate(45deg);
-					}
-
-					i {
+				.info-contact {
+					margin:20px auto;
+					display: flex;
+					justify-content : space-around;
+					transform:translateY(100%);
+					transition:all .4s .1s;
+						a {
 						position: relative;
-						z-index: 3;
+						z-index: 2;
+						width: 25px;
+						height: 25px;
+						line-height: 25px;
+						color: #fff;
+						transition:all .2s;
+						text-decoration: none;
+
+						&::before {
+							content: '';
+							position: absolute;
+							left: -2px;
+							top: -2px;
+							z-index: 1;
+							width: 100%;
+							height: 100%;
+							border: 2px solid #fff;
+							background-color: #ff9900;
+							transform: rotate(45deg);
+							transition:all .2s;
+						}
+
+						i {
+							position: relative;
+							z-index: 3;
+						}
+
+						&:hover {
+							color: #ff9900;
+
+							&::before {
+								background-color: #fff;
+							}
+						}
 					}
 				}
+			}
+		}
+
+		&:hover {
+			.member-face {
+				img {
+					transform : scale(1.1,1.1);
+				}
+			}
+			.member-info {
+				opacity: 1;
+
+				&::before {opacity: 1;}
+
+				.top-part{
+					transform: translateY(0);
+					& * {transform: translateY(0);}
+				}
+				.bottom-part {
+					transform: translateY(0);
+					& * {transform: translateY(0);}
+				}
+			}
+		}
+	}
+}
+
+/*work-page stylesheets*/
+.work-page {
+	@extend %pageSection;
+	background-color: #e92381;
+	color: #fff;
+
+	h3.text-center {
+		@include h3Title;
+	}
+	.page-desc {
+		@include pageDesc;
+	}
+
+	.carousel {
+		position: relative;
+		width: 100%;
+		overflow: hidden;
+
+		.scroller-list {
+				position: relative;
+				width: 100%;
+				height: 400px;
+				overflow: hidden;
+
+				.scroller-item {
+					position: relative;
+					float: left;
+					height: 100%;
+					padding: 0 40px;
+
+					.scroller-item-face {
+						width: 100px;
+						height: 100px;
+						margin:30px auto;
+						transform:rotate(45deg);
+						overflow: hidden;
+
+						.img-wrap{
+							width: 142px;
+							height: 142px;
+							margin-left: -21px;
+							margin-top: -21px;
+							transform:rotate(-45deg);
+								img {
+								width: 100%;
+								height: 100%;
+							}
+						}
+						
+					}
+					.scroller-item-desc {
+						font-size:$font-size-base;
+
+						h3.desc-name {
+							font-size: $font-size-lg;
+							line-height: 2;
+						}
+					}
+				}
+			}
+		.carousel-controller {
+			font-family: 'iconfont';
+
+			.controller-unit {
+				position: absolute;
+				top: 50%;
+				margin-top: -15px;
+				font-size: 30px;
+				line-height: 1;
+			}
+			.prev-btn {
+				left: 0;
+			}
+			.next-btn {
+				right: 0;
 			}
 		}
 	}

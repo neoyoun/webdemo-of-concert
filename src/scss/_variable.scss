@@ -1,3 +1,4 @@
+@charset "utf-8";
 $headline-ff:Braggadocio,Arial , Verdana , Helvetica , sans-serif;
 $main-sec-ff:Arial , Verdana , Helvetica , sans-serif;
 $font-size-base : 14px;
@@ -7,36 +8,36 @@ $font-size-lg : $font-size-base * 1.25;
 //== Media queries breakpoints
 // 小屏幕，手机屏幕.
 $screen-xs 			: 			480px !default;
-$screen-xs-max 		: 			$screen-xs !default;
+$screen-xs-max 	:			  $screen-xs !default;
 $screen-phone		: 			$screen-xs-max !default;
 
 //中屏幕，手机横屏，平板竖屏
-$screen-sm 			: 			770px !default;
+$screen-sm 				: 			770px !default;
 $screen-sm-min 		: 			$screen-xs + 1 !default;
 $screen-sm-max 		: 			$screen-sm !default;
 $screen-tablet		: 			$screen-sm-max !default;
 
 //平板横屏
-$screen-md 			: 			1024px !default;
+$screen-md 				: 			1024px !default;
 $screen-md-min 		: 			$screen-sm + 1 !default;
 $screen-md-max 		: 			$screen-md !default;
-$screen-pad			: 			$screen-md-max !default;
+$screen-pad				: 			$screen-md-max !default;
 
 //桌面显示器
-$screen-lg 			: 			1024px !default;
+$screen-lg 				: 			1024px !default;
 $screen-lg-min 		: 			$screen-lg !default;
 $screen-desktop		: 			$screen-lg-min !default;
 
 //列
-$grid-columns 		: 			12 !default;
+$grid-columns 			: 			12 !default;
 $grid-gutter-width  : 			30px !default;
 
 //container 宽度
-$container-sm		: 			$screen-sm-min + $grid-gutter-width !default;
+$container-sm			: 			$screen-sm-min + $grid-gutter-width !default;
 $container-tablet	: 			$screen-sm !default;
 
-$container-md		: 			$screen-md-min + $grid-gutter-width !default;
+$container-md			: 			$screen-md-min + $grid-gutter-width !default;
 $container-pad		: 			$screen-md !default;
 
-$container-lg		: 			$screen-lg-min + $grid-gutter-width !default;
+$container-lg			: 			$screen-lg-min + $grid-gutter-width !default;
 $container-pad		: 			$screen-lg !default;

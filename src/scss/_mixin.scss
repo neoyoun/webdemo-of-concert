@@ -9,21 +9,31 @@
   }
 }
 %pageSection {
-	margin-top: 80px;
-	margin-bottom: 80px;
 	text-align: center;
 	overflow: hidden;
+	padding: 80px 0;
+	@media (max-width: $screen-lg) {
+		padding: 50px 0;
+	}
+	@media (max-width: $screen-md) {
+		padding: 35px 0;
+	}
+	@media (max-width: $screen-sm) {
+		padding: 20px 0;
+	}
+	@media (max-width: $screen-xs) {
+		padding: 5px 0;
+	}
 }
 @mixin agile {
 	position: relative;
 	padding-top: 30px;
-	padding-bottom: 2000px;
-	margin-bottom: -1950px;
 }
 @mixin h3Title {
 	position: relative;
 	text-align: center;
 	font-size: 40px;
+	line-height: 2;
 	text-transform: uppercase;
 	padding-bottom: 40px;
 }
@@ -32,6 +42,7 @@
 	margin-top: 10px;
 	margin-bottom: 50px;
 	font-size: $font-size-lg;
+	text-transform: capitalize;
 }
 @mixin item-icon {
 	width: 80px;
@@ -51,4 +62,7 @@
 @mixin item-desc {
 	padding: 10px;
 	font-size: 14px;
+	height: 100px;
+	overflow: hidden;
+	text-overflow: ellipsis;
 }

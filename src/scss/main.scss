@@ -515,21 +515,23 @@ section{
 	.carousel {
 		position: relative;
 		width: 100%;
+		height: 400px;
 		overflow: hidden;
 
 		.scroller-list {
 				position: relative;
-				width: 100%;
 				height: 400px;
-				overflow: hidden;
+				transition-property:all;
+				transition-duration:.5s;
+				transition-timing-function:ease;
 
-				.scroller-item {
+				.slide-item {
 					position: relative;
 					float: left;
 					height: 100%;
 					padding: 0 40px;
 
-					.scroller-item-face {
+					.slide-item-face {
 						width: 100px;
 						height: 100px;
 						margin:30px auto;
@@ -549,7 +551,7 @@ section{
 						}
 						
 					}
-					.scroller-item-desc {
+					.slide-item-desc {
 						font-size:$font-size-base;
 
 						h3.desc-name {

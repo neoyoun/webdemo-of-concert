@@ -45,7 +45,7 @@
 			</div>
 		</div>
 	</section>
-	<section data-indication="about" id="#about" class="about-page">
+	<section data-indication="about" id="about" class="about-page">
 		<h3 class="text-center"><span>about us</span></h3>
 		<div class="page-desc">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</div>
 		<div class="container">
@@ -81,7 +81,7 @@
 			</div>
 		</div>
 	</section>
-	<section data-indication="info" id="#info" class="info-page">
+	<section data-indication="info" id="info" class="info-page">
 		<h3 class="text-center">why people like us</h3>
 		<div class="page-desc">Hear Are Few Reasons</div>
 		<div class="container">
@@ -221,33 +221,33 @@
 		<h3 class="text-center">our customer reviews</h3>
 		<div class="page-desc">Our Clients Like Us, Please Read Their Opinions</div>
 		<div class="container">
-			<div class="carousel">
-				<div class="scroller-list">
-					<div class="scroller-item">
-						<div class="scroller-item-face">
+			<div class="carousel" id="myCarousel">
+				<div class="scroller-list" role="list-box">
+					<div class="slide-item">
+						<div class="slide-item-face">
 							<div class="img-wrap"><img src="./images/test-img1.jpg" alt=""></div>
 						</div>
-						<div class="scroller-item-desc">
+						<div class="slide-item-desc">
 							<p class="desc-info">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ac bibendum sem. Nullam bibendum justo eget lorem porta euismod. Donec et fringilla tortor.</p>
 							<h3 class="desc-name">Kate Winslet</h3>
 							<p class="desc-type">DJ Newyork</p>
 						</div>
 					</div>
-					<div class="scroller-item">
-						<div class="scroller-item-face">
+					<div class="slide-item">
+						<div class="slide-item-face">
 							<div class="img-wrap"><img src="./images/test-img2.jpg" alt=""></div>
 						</div>
-						<div class="scroller-item-desc">
+						<div class="slide-item-desc">
 							<p class="desc-info">Cras nunc nisi, sagittis et nibh in, feugiat dapibus quam. Ut pellentesque dictum massa, pellentesque aliquet nisi aliquam in. Maecenas non sollicitudin dui.</p>
 							<h3 class="desc-name">Britney Spears</h3>
 							<p class="desc-type">Music Director</p>
 						</div>
 					</div>
-					<div class="scroller-item">
-						<div class="scroller-item-face">
+					<div class="slide-item">
+						<div class="slide-item-face">
 							<div class="img-wrap"><img src="./images/test-img3.jpg" alt=""></div>
 						</div>
-						<div class="scroller-item-desc">
+						<div class="slide-item-desc">
 							<p class="desc-info">Mauris nec ex quis elit euismod posuere. Sed ultricies mollis turpis, a convallis diam dignissim eu. Suspendisse elit elit, suscipit eu sollicitudin facilisis.</p>
 							<h3 class="desc-name">Lady Gaga</h3>
 							<p class="desc-type">Music Director</p>
@@ -255,15 +255,15 @@
 					</div>
 				</div>
 				<div class="carousel-controller">
-					<div class="controller-unit prev-btn">&#xe6061;</div>
-					<div class="controller-unit next-btn">&#xe606;</div>
+					<div class="controller-unit prev-btn" data-slide="prev">&#xe6061;</div>
+					<div class="controller-unit next-btn" data-slide="next">&#xe606;</div>
 				</div>
 			</div>
 		</div>
 		
 	</section>
 	<section data-indication="contact"></section>
-
+	<script type="text/javascript" src="./js/carousel.js"></script>
 	<script>
 		let bannerData = [
 		{'bgImg':'./images/banner1.jpg', 'title' : 'LOREM IPSUM DOLOR SIT AMET'},
@@ -278,6 +278,10 @@
 			let bannerImgDOM = document.querySelector('.banner-image');
 			bannerImgDOM.style.height = (window.innerWidth/bannerImg.width)*bannerImg.height>>0 + 'px';
 		}
+		
+		let carousel = document.querySelector('#myCarousel');
+		carousel.slide();
+
 		
 	</script>
 </body>

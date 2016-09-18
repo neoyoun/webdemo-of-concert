@@ -1,4 +1,5 @@
 .container {
+  position: relative;
   margin-right: auto;
   margin-left: auto;
   padding-left: 15px;
@@ -11,6 +12,11 @@
   @media (min-width: 1024px) {
     .container {
       width: 1054px; } }
+  .container:before, .container:after {
+    content: "";
+    display: table; }
+  .container:after {
+    clear: both; }
 
 .row {
   margin-left: -15px;

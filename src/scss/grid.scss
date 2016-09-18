@@ -1,6 +1,7 @@
 @import "variable","mixin";
 // Centered container element
 @mixin container-fixed($gutter: $grid-gutter-width) {
+	position: relative;
   margin-right: auto;
   margin-left: auto;
   padding-left:  floor(($gutter / 2));
@@ -17,6 +18,8 @@
 .container {
 	@include container-fixed;
 	@media (min-width: $screen-lg-min) {width: $container-lg}
+	
+	@include clearfix;
 }
 .row {
 	@include make-row;

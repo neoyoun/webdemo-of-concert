@@ -442,53 +442,63 @@ section {
     margin-bottom: 50px;
     font-size: 17.5px;
     text-transform: capitalize; }
-  .work-page .carousel {
+  .carousel {
     position: relative;
     width: 100%;
     height: 400px;
     overflow: hidden; }
-    .work-page .carousel .scroller-list {
+    .carousel:hover {
+      background-color: #ea3189; }
+    .carousel .scroller-list {
       position: relative;
       height: 400px;
       transition-property: all;
       transition-duration: .5s;
       transition-timing-function: ease; }
-      .work-page .carousel .scroller-list .slide-item {
+      .carousel .scroller-list .slide-item {
         position: relative;
         float: left;
-        height: 100%;
-        padding: 0 40px; }
-        .work-page .carousel .scroller-list .slide-item .slide-item-face {
+        height: 400px; }
+        .carousel .scroller-list .slide-item .slide-item-face {
           width: 100px;
           height: 100px;
-          margin: 30px auto;
+          margin: 50px auto;
           transform: rotate(45deg);
           overflow: hidden; }
-          .work-page .carousel .scroller-list .slide-item .slide-item-face .img-wrap {
+          .carousel .scroller-list .slide-item .slide-item-face .img-wrap {
             width: 142px;
             height: 142px;
             margin-left: -21px;
             margin-top: -21px;
             transform: rotate(-45deg); }
-            .work-page .carousel .scroller-list .slide-item .slide-item-face .img-wrap img {
+            .carousel .scroller-list .slide-item .slide-item-face .img-wrap img {
               width: 100%;
               height: 100%; }
-        .work-page .carousel .scroller-list .slide-item .slide-item-desc {
-          font-size: 14px; }
-          .work-page .carousel .scroller-list .slide-item .slide-item-desc h3.desc-name {
-            font-size: 17.5px;
-            line-height: 2; }
-    .work-page .carousel .carousel-controller {
-      font-family: 'iconfont'; }
-      .work-page .carousel .carousel-controller .controller-unit {
-        position: absolute;
-        top: 50%;
-        margin-top: -15px;
-        font-size: 30px;
-        line-height: 1; }
-      .work-page .carousel .carousel-controller .prev-btn {
-        left: 0; }
-      .work-page .carousel .carousel-controller .next-btn {
-        right: 0; }
+        .carousel .scroller-list .slide-item .slide-item-desc {
+          font-size: 14px;
+          line-height: 2;
+          height: 200px;
+          position: absolute;
+          bottom: 0;
+          padding: 0 80px; }
+          .carousel .scroller-list .slide-item .slide-item-desc .desc-title {
+            display: inline-block;
+            border-top: 2px solid #fff;
+            font-size: 21px; }
+    .carousel .controller-unit {
+      font-family: 'iconfont';
+      cursor: pointer;
+      position: absolute;
+      top: 0;
+      display: block;
+      width: 40px;
+      height: 400px;
+      line-height: 400px;
+      font-size: 30px;
+      text-decoration: none; }
+    .carousel .prev-btn {
+      left: 0; }
+    .carousel .next-btn {
+      right: 0; }
 
 /*# sourceMappingURL=main.css.map */

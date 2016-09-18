@@ -1,22 +1,50 @@
 let CarouselComponent = function (userConfig) {
-		let self = this;
-		let slideItems = self.querySelectorAll('.slide-item');
-		if( slideItems.length <= 0 ){
-			throw new Error("Element which you want to slide must contain class name '.slide-item'");
-			return false;
-		}
 		const defaultConfig = {
 			interval : 5000,
 			direction : 'left',
 			pause : 'hover'
 		}
-		let childs = self.childNodes;
-		let config,listBox,prevBtn,nextBtn;
+		let self = this;
+		let step = self.offsetWidth;
+		let listBox,slideItems,itemsCount,prevBtn,nextBtn,indicator;
+		let childs = self.getElementsByTagName('*');
+		// find slide items's wraper and slide item;
+		(function findDOM() {
+			for (let i = 0; i < childs.length; i++) {
+					if(childs[i].nodeType == 1) {
+						if( childs[i].getAttribute('role') && childs[i].getAttribute('role') == 'list-box'){
+							listBox = childs[i];
+						 }
+						if( childs[i].dataset['slide'] ){
+							let btnDirection = childs[i].dataset['slide'];
 
-		if( userConfig !== undefined ){
-			if( typeof userConfig === Object ){
-				config = Object.assign(defaultConfig,userConfig);
-			}else if ( typeof userConfig === 'string' ){
+							if( btnDirection == 'prev') {prevBtn = childs[i]}
+							if( btnDirection == 'next') {nextBtn = childs[i]}
+						}
+					}
+				}
+			if( !listBox ){
+					console.error('slide item must be wraped');
+					return false;
+				}
+			//鼠标移入移出事件；
+			listBox.addEventListener('mouseover' , pauseAutoSlide )
+			listBox.addEventListener('mouseout' , pauseAutoSlide )
+			if( prevBtn && nextBtn ){
+					prevBtn.addEventListener('click', slideToPrev )
+					nextBtn.addEventListener('click', slideToNext )
+				}
+				
+		 	slideItems = listBox.querySelectorAll('.slide-item');
+			itemsCount = slideItems.length;
+			if( slideItems.length <= 0 ){
+				throw new Error("Element which you want to slide must contain class name '.slide-item'");
+				return false;
+			}
+			
+		})();
+		let config = defaultConfig;
+		if( typeof userConfig === 'string' ){
 				switch(userConfig) {
 					case 'hover':
 						pauseAutoSlide();
@@ -30,93 +58,123 @@ let CarouselComponent = function (userConfig) {
 					default :
 						break;
 				}
+		}else{
+			if (typeof userConfig === 'object' ) {
+				config = Object.assign(config,userConfig);
 			}
-		}else {
-			config = defaultConfig;
+		}
+		let curSlideIndex = 0;
+		let curSlidePos = listBox.style.transform;
+		//获得当前滚动位置长度，根据滚动位置判断居中项索引
+		if( curSlidePos ){
+			curSlidePos = -(curSlidePos.split('(')[1].split('px')[0]);
+			curSlideIndex = (curSlidePos / step)-1;
 		}
 		
-// find slide items's wraper
-		for (let i = 0; i < childs.length; i++) {
-			if(childs[i].nodeType == 1 && childs[i].getAttribute('role')){
-				if( childs[i].getAttribute('role') == 'list-box'){
-					listBox = childs[i];
-				}
-			}
-		}
-		if( !listBox ){
-			console.error('slide item must be wraped');
-			return false;
-		}
 
-initialDOM(config);
+	isInitialEnter()? initialDOM() :'';
+ function isInitialEnter() {
+ 	let nodes = [];
+ 	for(let i = 0; i<listBox.childNodes.length;i++){
+ 		if( listBox.childNodes[i].nodeType == 1 ){
+ 			nodes.push( listBox.childNodes[i].innerHTML)
+ 		}
+ 	}
+ 	let noRepeatNodes = new Set(nodes);
+ 	return nodes.length == noRepeatNodes.size;
+ }
 
- function initialDOM(config) {
+ function initialDOM() {
   /*
-	 *初始化节点，包括样式和DOM结构的创建。
+	 *初始化节点，只调用一次。包括样式和DOM结构的创建。
 	 *防止滚动到最后一个节点的时候出现空白，在头一个滚动的
 	 *的节点复制到队列最后。
 	 *因此样式上盒子的宽度比滚动项多一个。高度在css中设置一致。
 	 *滚动项的高度和宽度保持和祖先元素一致；
 	 *最后调用动画方法
 	 */
-	for (let i = 0; i < slideItems.length; i++) {
+		for (let i = 0; i < itemsCount; i++) {
 			slideItems[i].style.width = self.offsetWidth + 'px';
 			slideItems[i].style.height = self.offsetHeight + 'px';
 		}
-	listBox.style.width = (slideItems[0].offsetWidth * (slideItems.length+1)) +'px';
+		listBox.style.width = (slideItems[0].offsetWidth * (itemsCount+2)) +'px';
 	
-	if( config.direction == 'left' ){
-		let copyItem = listBox.firstElementChild.cloneNode(true);
-		listBox.appendChild(copyItem)
-	}else {
-		let copyItem = listBox.lastElementChild.cloneNode(true);
-		listBox.insertBefore(copyItem , listBox.firstElementNode);
-	}
-	return startSlide(config);
+		let lastItem = listBox.lastElementChild.cloneNode(true);
+		let firstItem = listBox.firstElementChild.cloneNode(true);
+		firstItem.classList.remove('active');
+		lastItem.classList.remove('active');
+		listBox.appendChild(firstItem);
+		listBox.insertBefore(lastItem,listBox.firstElementChild);
+		listBox.style.transform = 'translate3d(-'+step + 'px, 0 ,0)';
+
+		itemsCount = itemsCount+2;
+		if(self.className.indexOf('slide') > -1){startAutoSlide(config.direction)};
 }
 
-function startSlide(config) {
-	let interval = config.interval;
-	let direction = config.direction;
-	let step = self.offsetWidth;
-	let curSlideIndex = 0;
-
-	switch(direction) {
-		case 'left':
-			slideToLeft();
-			break;
-		case 'right':
-			slideToRight();
-			break;
-		default :
-			break;
+function startAutoSlide(direction) {
+	/*
+	 *自动滚动方法
+	 *需要添加 .slide 类名 才执行自动方法
+	 *
+	 */
+	if(self.className.indexOf('slide') < 0 ) return;
+		self.timer = setInterval(function () {
+		if( direction == 'right'){
+			curSlideIndex--;
+		}else {
+			curSlideIndex++;
+		}
+		setListBoxPos(curSlideIndex)
+		}, config.interval)
+	
+}
+function setListBoxPos(index) {
+	curSlideIndex = index;
+	//console.log(`index=>${curSlideIndex},itemsCount=>${itemsCount}`);
+	listBox.style.transitionDuration = '.3s';
+	listBox.style.transform = 'translate3d(-'+ (curSlideIndex+1)*step + 'px, 0 ,0)';
+	if( curSlideIndex < 0 ){
+			setTimeout(function () {
+				listBox.style.transitionDuration = '0s';
+				listBox.style.transform = 'translate3d(-'+ ((itemsCount-2)*step) +'px, 0 ,0)';
+			}, 300)
+			curSlideIndex = itemsCount - 3;
+		}else if( curSlideIndex >= (itemsCount - 2) ){
+			setTimeout(function () {
+				listBox.style.transitionDuration = '0s';
+				listBox.style.transform = 'translate3d(-'+ step +'px, 0 ,0)';
+			}, 300)
+			curSlideIndex = 0;
+		}
+}
+function slideToNext(e) {
+		e.stopPropagation();
+		e.preventDefault();
+		clearInterval(self.timer);
+		curSlideIndex++;
+		setListBoxPos(curSlideIndex);
+		startAutoSlide(config.direction);
 	}
-
-	function slideToLeft() {
-		let timer = setInterval(function () {
-			if( curSlideIndex == slideItems.length ){
-				curSlidePos = curSlideIndex * step;
-				curSlideIndex = 0;
-				listBox.style.transitionDuration = '.3s';
-				listBox.style.transform = 'translate3d(-'+curSlidePos + 'px, 0 ,0)';
-				setTimeout(function () {
-					listBox.style.transitionDuration = '0s';
-					listBox.style.transform = 'translate3d(0, 0 ,0)';
-				}, 300)
-				
+function slideToPrev(e) {
+		e.stopPropagation();
+		e.preventDefault();
+		clearInterval(self.timer);
+		curSlideIndex--;
+		setListBoxPos(curSlideIndex);
+		startAutoSlide(config.direction);
+	}		
+function pauseAutoSlide(e) {
+		e.stopPropagation();
+		e.preventDefault();
+		if(config.pause == 'hover') {
+			if(self.timer){
+				clearInterval(self.timer);
+				self.timer = null;
 			}else {
-				curSlideIndex ++ ;
-				curSlidePos = curSlideIndex * step;
-				listBox.style.transitionDuration = '.3s';
-				listBox.style.transform = 'translate3d(-'+curSlidePos + 'px, 0 ,0)';
+				startAutoSlide(config.direction);
 			}
-			
-			}, interval)
-	}
-	
+	}		
 }
-		
-
 }
 Object.defineProperty(HTMLElement.prototype,'slide',{
 			value : CarouselComponent

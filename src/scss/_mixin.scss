@@ -41,7 +41,6 @@
 }
 @mixin agile {
 	position: relative;
-	padding-top: 30px;
 }
 @mixin h3Title {
 	position: relative;
@@ -71,10 +70,14 @@
 }
 @mixin item-title {
 	font-size: 20px;
-	line-height: 3;
+	line-height: 1;
+	margin-top: 1rem;
+	margin-bottom: 1rem;
 }
 @mixin item-desc {
 	padding: 10px;
+	text-align: start;
+	text-indent: 1em;
 	font-size: 14px;
 	height: 100px;
 	overflow: hidden;

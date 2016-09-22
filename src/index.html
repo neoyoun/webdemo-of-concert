@@ -31,7 +31,7 @@
 		</nav>
 		
 		<div class="banner">
-			<div class="banner-container">
+			<div class="banner-container" id="topBanner">
 				<!-- <img class="banner-image" src="./images/banner1.jpg" alt=""> -->
 				<div class="banner-info col-md-6 col-xs-12">
 					<div class="banner-title">
@@ -43,8 +43,10 @@
 					<div class="controller-unit prev-btn">&#xe6101;</div>
 					<div class="controller-unit next-btn">&#xe610;</div>
 				</div>
+				<div class="process-wrap">
+					<div class="process-bg"></div>
+				</div>
 			</div>
-			
 		</div>
 	</section>
 	<section data-indication="about" id="about" class="about-page">
@@ -265,21 +267,39 @@
 	<section data-indication="contact"></section>
 	<script type="text/javascript" src="./js/carousel.js"></script>
 	<script>
-		let bannerData = [
-		{'bgImg':'./images/banner1.jpg', 'title' : 'LOREM IPSUM DOLOR SIT AMET'},
-		{'bgImg':'./images/banner2.jpg', 'title' : 'CONSECTETUR ADIPISCING'},
-		{'bgImg':'./images/banner3.jpg', 'title' : 'IN QUIS NEQUE CONVALLIS'},
-		{'bgImg':'./images/banner4.jpg', 'title' : 'PULVINAR EROS ET SEMPER'},
-		{'bgImg':'./images/banner5.jpg', 'title' : 'SED FAUCIBUS TURPIS'},
+		var topBannerData = [
+		{bgImg:'./images/banner1.jpg', title : 'LOREM IPSUM DOLOR SIT AMET'},
+		{bgImg:'./images/banner2.jpg', title : 'CONSECTETUR ADIPISCING'},
+		{bgImg:'./images/banner3.jpg', title : 'IN QUIS NEQUE CONVALLIS'},
+		{bgImg:'./images/banner4.jpg', title : 'PULVINAR EROS ET SEMPER'},
+		{bgImg:'./images/banner5.jpg', title : 'SED FAUCIBUS TURPIS'},
 		]
-		let bannerImg = new Image;
-		bannerImg.src = bannerData[0].bgImg;
-		bannerImg.onload = function () {
-			let bannerImgDOM = document.querySelector('.banner-image');
-			bannerImgDOM.style.height = (window.innerWidth/bannerImg.width)*bannerImg.height>>0 + 'px';
+
+		var topBanner = document.getElementById('topBanner');
+		var bannerTitle = topBanner.querySelector('.banner-title');
+		var processBg = topBanner.querySelector('.process-bg');
+
+
+		var T = 5000,index = 0,startTime = new Date().getTime(),fullWidth = topBanner.offsetWidth;
+		setTimeout(processIndicate, 16.7);
+		function processIndicate () {
+			var currTime = new Date().getTime();
+			if( (currTime - startTime) < T ){
+				var per = (currTime - startTime)/T*fullWidth;
+				processBg.style.width = per + 'px';
+			} else {
+				console.log(index);
+				index ++ ;
+				index = index >= topBannerData.length? 0 : index;
+				startTime = currTime;
+				processBg.style.width = '0%';
+				topBanner.style.backgroundImage = 'url("' + topBannerData[index].bgImg + '")';
+				bannerTitle.innerText = topBannerData[index].title;
+			}
+		setTimeout(processIndicate, 16.7)
 		}
 		
-		let carousel = document.querySelector('#myCarousel');
+		var carousel = document.querySelector('#myCarousel');
 		carousel.slide();
 
 		

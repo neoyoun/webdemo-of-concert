@@ -8,6 +8,20 @@
     clear: both;
   }
 }
+@mixin imgRatio($width,$height){
+	padding: floor($height/$width * 50% ) 50%;
+}
+%strench {
+	position: absolute;
+	left: 0;
+	top: 0;
+	bottom: 0;
+	right: 0;
+	overflow: hidden;
+}
+%img-responsive {
+	max-width: 100%;
+}
 %pageSection {
 	text-align: center;
 	overflow: hidden;

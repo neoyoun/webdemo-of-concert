@@ -15,7 +15,9 @@
   -webkit-text-stroke-width: 0.2px;
   -moz-osx-font-smoothing: grayscale;
 }
-
+.clear {
+	@include clearfix();
+}
 html{
 	font-size: 10px;
 	width: 100%;
@@ -31,9 +33,10 @@ section{
 }
 .navbar{
 	position: absolute;
-	width: 100%;
-	z-index: 2;
-	top: 40px;
+	left: 10%;
+	right: 10%;
+	margin-top: 40px;
+	z-index: 1;
 	@extend .container;
 	@at-root .menu-navigation{
 		a {
@@ -90,26 +93,17 @@ section{
 }
 
 .banner {
-	position: relative;
-	width: 100%;
-	z-index: 1;
-
+	@include imgRatio(1680,945);
 	.banner-container {
-		position: relative;
-		width: 100%;
-		height: 100%;
-		overflow: hidden;
-
-		.banner-image {
-			width: 100%;
-			height: 100%;
-		}
+		@extend %strench;
+		background-image: url(../images/banner1.jpg);
+		background-size: 100%;
+		background-repeat: no-repeat;
 
 		.banner-info {
 			position: absolute;
-			left: 10%;
-			top: 50%;
-			width: 50%;
+			bottom: 25%;
+			margin-left: 10%;
 			font-family: tahoma,arial;
 
 			.banner-title {
@@ -124,29 +118,39 @@ section{
 				letter-spacing: 5px;
 			}
 		}
+		.banner-controller {
+			position: absolute;
+			bottom: 20%;
+			margin-left: 10%;
+			padding-left: 15px;
+			transform:translateY(100%);
+			text-align: center;
+
+			@media (max-width: $screen-sm) {
+					margin-left: 0;
+					left: 0;
+					right: 0;
+			}
+
+			.controller-unit{
+				margin-right: 10px;
+				display: inline;
+				font-family: 'iconfont';
+				font-size: 50px;
+				line-height: 1;
+				color: #fff;
+				cursor: pointer;
+				opacity: .5;
+				transition:all .2s;
+			}
+
+			&:hover .controller-unit {
+				opacity: 1;
+			}
+		}
 	}
 
-	.banner-controller {
-		position: absolute;
-		bottom: 20px;
-		left: 10%;
-
-		.controller-unit{
-			margin-right: 10px;
-			float: left;
-			font-family: 'iconfont';
-			font-size: 50px;
-			line-height: 1;
-			color: #fff;
-			cursor: pointer;
-			opacity: .5;
-			transition:all .2s;
-		}
-
-		&:hover .controller-unit {
-			opacity: 1;
-		}
-	}
+	
 }
 
 
